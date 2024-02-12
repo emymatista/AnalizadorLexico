@@ -103,6 +103,7 @@ public class FrmAnalizador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+   
     private void btnAnalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalizarActionPerformed
         // TODO add your handling code here:
         File archivo = new File("archivo.txt");
@@ -139,6 +140,7 @@ public class FrmAnalizador extends javax.swing.JFrame {
                         break;
                 }
             }
+        
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FrmAnalizador.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

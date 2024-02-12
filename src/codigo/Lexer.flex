@@ -10,18 +10,12 @@ espacio=[ ,\t,\r,\n]+
     public String lexeme;
 %}
 %%
-int |
-float |
-entero |
-real |
-if |
-si |
-else |
-entonces |
-mientras |
-para |
-for |
-while {lexeme=yytext(); return Reservada;}
+int | float {lexeme=yytext(); return Reservada;}
+si | if {lexeme=yytext(); return Reservada_if;}
+else | entonces {lexeme=yytext(); return Reservada_else;}
+else if | si entonces {lexeme=yytext(); return Reservada_else_if;}
+para | for {lexeme=yytext(); return Reservada_for;}
+mientras | while {lexeme=yytext(); return Reservada_while;}
 {espacio} {/*Ignore*/}
 "//".* {/*Ignore*/}
 "(" {return ParentesisAbierto;}
@@ -35,7 +29,9 @@ while {lexeme=yytext(); return Reservada;}
 "*" {return Multiplicacion;}
 "**" {return Exponenciacion;}
 "/" {return Division;}
-"%" {return Modulus;}
+"%" {return Modulo;}
+{D}+"."{D}* {lexeme=yytext(); return NumeroDecimal;}
 {L}({L}|{D})* {lexeme=yytext(); return Identificador;}
 ("(-"{D}+")")|{D}+ {lexeme=yytext(); return Numero;}
+\"([^\"\n]|\\.)*\" {lexeme=yytext(); return Cadena;}
  . {return ERROR;}

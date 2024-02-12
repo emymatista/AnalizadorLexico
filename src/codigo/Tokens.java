@@ -11,6 +11,11 @@ package codigo;
  */
 public enum Tokens {
     Reservada,
+    Reservada_if,
+    Reservada_else,
+    Reservada_else_if,
+    Reservada_for,
+    Reservada_while,
     ParentesisAbierto,
     ParentesisCerrado,
     LlaveAbierto,
@@ -22,8 +27,10 @@ public enum Tokens {
     Multiplicacion,
     Exponenciacion,
     Division,
-    Modulus,
+    Modulo,
+    NumeroDecimal,
     Identificador,
     Numero,
+    Cadena,
     ERROR
 }
